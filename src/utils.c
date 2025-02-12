@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/10 18:54:15 by lolq              #+#    #+#             */
-/*   Updated: 2025/02/12 15:56:29 by lolq             ###   ########.fr       */
+/*   Created: 2025/02/12 17:26:48 by lolq              #+#    #+#             */
+/*   Updated: 2025/02/12 17:42:36 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int main(int argc, char **argv)
+void    free_matrice(t_fdf *fdf)
 {
-    if (argc < 2)
-        return (ft_putstr_fd("Error: not enough arguments.\n", 2), FAIL);
-    if (argc == 2)
-    {
-        
-    } 
+    
 }

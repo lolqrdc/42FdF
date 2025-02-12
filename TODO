@@ -1,2 +1,7 @@
 TODO:
-    ☐ 
+    PARSING:
+        ☐ Check the file name.
+        ☐ Read the file (gnl).
+        ☐ Store the map in a 2d array of int.
+        ☐ Store everything in a struct to use it later.
+    
