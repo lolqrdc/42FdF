@@ -19,6 +19,7 @@ RM = rm -f
 
 # SOURCES FILES 
 SRC = $(SRC_DIR)main.c \
+		$(SRC_DIR)parsing.c \
 
 # CONNECT ALL SOURCES 
 

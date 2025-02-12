@@ -6,7 +6,7 @@
 /*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:54:15 by lolq              #+#    #+#             */
-/*   Updated: 2025/02/10 20:48:07 by lolq             ###   ########.fr       */
+/*   Updated: 2025/02/11 13:47:18 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,4 @@ int main(int argc, char **argv)
         
     }
         
-}
-
-int handle_errors(char *error_msg)
-{
-    ft_printf("%s\n", error_msg);
-    exit (1);
 }
