@@ -36,7 +36,7 @@ $(LIBFT):
 	@make -C $(LIBFT_PATH)
 
 $(MLX_NAME):
-	@make -C $(MLX_PATH)
+	@make -sC $(MLX_PATH)
 
 $(NAME): $(OBJS) $(LIBFT) $(MLX_NAME)
 		@$(CC) $(CFLAGS) $(INCFLAGS) $(OBJS) $(LIBFT) $(MLXFLAGS) -o $(NAME)

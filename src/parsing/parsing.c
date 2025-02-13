@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 13:47:00 by lolq              #+#    #+#             */
-/*   Updated: 2025/02/13 11:08:07 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/13 12:41:46 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ bool    check_file_name(char *file)
     len = ft_strlen(file);
     if (!file || len < 4)
         return (false);
-    if (ft_strcmp(file + len - 4, ".fdf") == 0)
+    if (ft_strncmp(file + len - 4, ".fdf", 4) == 0)
         return (true);
     return (false);
 }
