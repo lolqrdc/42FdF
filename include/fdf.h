@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:13:48 by lolq              #+#    #+#             */
-/*   Updated: 2025/02/13 11:04:23 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/13 18:45:30 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,15 @@
 # define WHITE 0xFFFFFF
 # define RED 0xFF0000
 
-/* MES DEFINES */
+/* DEFINE */
 # define FAIL 1
 # define SUCCESS 0
 
+typedef struct s_point
+{
+    int x;
+    int y;
+} t_point;
 typedef struct s_img
 {
     void    *image; // ptr to the image created by mlx.
@@ -48,35 +53,27 @@ typedef struct s_img
 typedef struct s_map
 {
     int     **z_matrice; // matrice stocking the height values.
-    int     height; // nbr of row in the map.
-    int     width; // nbr of columms in the map.
-    int     len; // length of the map.
+    int     height; // nbr of row.
+    int     width; // nbr of colummsp.
 } t_map;
 
 typedef struct s_fdf
 {
-    void    *mlx; // ptr to the mlx instance.
-    void    *windows; // ptr to the created window.
-    t_img   img; // struct containing image information.
-    t_map   map; // struct containing info of the map(s).
-    int     c_x; // control the pos X of the rendered map.
-    int     c_y; // control the pos Y of the rendered map.
+    void    *mlx; // mlx instance.
+    void    *windows; // window.
+    t_img   img; // image data.
+    t_map   map; // map data.
+    t_point center; // coordinates.
+    int     zoom; // scale.
 } t_fdf;
 
-/* FUNCTIONS */
 int main(int argc, char **argv);
 
-/* PARSING */
-t_map   parsing_map(t_map map, char *file);
-bool    check_file_name(char *file);
-void    handle_error(char *msg, int code);
+/* parsing.c: */
+int     check_file_name(char *file);
+void    handle_error(char *message);
 
-/* INITIALIZATION */
-void    map_dimension(t_map *map, char *file);
-void    map_matrice(t_map *map, char *file);
-int    init_matrice(char *file, t_map *map);
-
-/* UTILS */
+/* utils.c: */
 void    free_tab(char **tab);
 void    free_map(t_map *map);
 

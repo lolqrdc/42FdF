@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 17:26:48 by lolq              #+#    #+#             */
-/*   Updated: 2025/02/13 12:59:41 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/13 18:34:40 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void    free_map(t_map *map)
     if (map->z_matrice)
     {
         while (i < map->height)
-            free(map->z_matrice);
+            free(map->z_matrice[i++]);
         free(map->z_matrice);   
     }
     map->z_matrice = NULL;
@@ -37,8 +37,7 @@ void    free_map(t_map *map)
     map->width = 0;
 }
 
-void handle_error(char *msg, int code)
+void handle_error(char *message)
 {
-    ft_putstr_fd(msg, 2);
-    exit(code);
+    ft_putstr_fd(message, 2);
 }

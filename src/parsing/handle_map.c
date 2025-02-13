@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_map.c                                       :+:      :+:    :+:   */
+/*   handle_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 15:40:12 by lolq              #+#    #+#             */
-/*   Updated: 2025/02/13 13:05:45 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/13 18:34:16 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-/**
- * @brief: Count the number of row (height) and columms (width), plus 
- * create the matrice based on the height and width. 
- */
-/* read line by line, count the nb of rows and columns. */
-void    map_dimension(t_map *map, char *file)
+
+
+/*void    map_dimension(t_map *map, char *file)
 {
     int     fd;
     char    *line;
@@ -42,7 +39,7 @@ void    map_dimension(t_map *map, char *file)
     }
     close(fd);
 }
-/* convert each line into int. Ints are stocked inside z_matrice of t_map. */
+
 void    map_matrice(t_map *map, char *file)
 {
     int     i;
@@ -70,6 +67,7 @@ void    map_matrice(t_map *map, char *file)
     }
     close(fd);
 }
+
 int    init_matrice(char *file, t_map *map)
 {
     int i;
@@ -91,4 +89,4 @@ int    init_matrice(char *file, t_map *map)
     }
     map_matrice(map, file);
     return (SUCCESS);
-}
+}*/
