@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:54:15 by lolq              #+#    #+#             */
-/*   Updated: 2025/02/12 15:56:29 by lolq             ###   ########.fr       */
+/*   Updated: 2025/02/13 10:58:06 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 
 int main(int argc, char **argv)
 {
+    t_fdf   *fdf;
+
+    fdf = malloc(sizeof(t_fdf));
     if (argc < 2)
         return (ft_putstr_fd("Error: not enough arguments.\n", 2), FAIL);
     if (argc == 2)
     {
-        
+        parsing_map(fdf->map, argv[1]);
     } 
 }

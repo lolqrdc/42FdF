@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:13:48 by lolq              #+#    #+#             */
-/*   Updated: 2025/02/12 18:15:53 by lolq             ###   ########.fr       */
+/*   Updated: 2025/02/13 11:04:23 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 # define FDF_H
 
 /* LIBRAIRIES */
-# include "./libft/include/libft.h"
-# include "./libft/include/ft_printf.h"
-# include "./libft/include/get_next_line.h"
-# include "../minilibx-linux/mlx.h"
+# include "../libft/include/libft.h"
+# include "../libft/include/ft_printf.h"
+# include "../libft/include/get_next_line.h"
+# include "./minilibx-linux/mlx.h"
 # include <math.h>
 # include <stdbool.h>
 # include <errno.h>
@@ -67,12 +67,17 @@ typedef struct s_fdf
 int main(int argc, char **argv);
 
 /* PARSING */
-t_map   parsing_map(char *file);
+t_map   parsing_map(t_map map, char *file);
 bool    check_file_name(char *file);
 void    handle_error(char *msg, int code);
+
+/* INITIALIZATION */
 void    map_dimension(t_map *map, char *file);
 void    map_matrice(t_map *map, char *file);
-void    init_matrice(char *file, t_map *map);
-void    free_matrice(t_fdf *fdf);
+int    init_matrice(char *file, t_map *map);
+
+/* UTILS */
+void    free_tab(char **tab);
+void    free_map(t_map *map);
 
 #endif 

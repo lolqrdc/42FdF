@@ -13,13 +13,16 @@ OBJS_DIR = obj/
 # COMPILER & FLAGS
 CC = cc 
 CFLAGS = -Wall -Wextra -Werror -g
-INCFLAGS += -I$(INC) -I ./libft -I$(MLX_PATH)
+INCFLAGS += -I$(INC) -I$(LIBFT_PATH)/include -I$(MLX_PATH)
 MLXFLAGS = -L$(MLX_PATH) -lmlx -lXext -lX11 -lm
 RM = rm -f
 
 # SOURCES FILES 
 SRC = $(SRC_DIR)main.c \
-		$(SRC_DIR)parsing.c \
+		$(SRC_DIR)utils.c \
+		$(SRC_DIR)parsing/parsing.c \
+		$(SRC_DIR)parsing/create_map.c \
+
 
 # CONNECT ALL SOURCES 
 
