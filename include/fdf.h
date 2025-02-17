@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:13:48 by lolq              #+#    #+#             */
-/*   Updated: 2025/02/13 18:45:30 by lolq             ###   ########.fr       */
+/*   Updated: 2025/02/17 15:53:39 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "../libft/include/libft.h"
 # include "../libft/include/ft_printf.h"
 # include "../libft/include/get_next_line.h"
-# include "./minilibx-linux/mlx.h"
+# include "../minilibx-linux/mlx.h"
 # include <math.h>
 # include <stdbool.h>
 # include <errno.h>
@@ -38,13 +38,16 @@
 
 typedef struct s_point
 {
-    int x;
-    int y;
+    float x;
+    float y;
+    float z;
+    int screen_x; // projection of x.
+    int screen_y; // projection of y.
 } t_point;
 typedef struct s_img
 {
     void    *image; // ptr to the image created by mlx.
-    char    *addr; // address of the 1st pixel of the image.
+    char    *img_addr; // address of the 1st pixel of the image.
     int     bits_pixel; // bits per pixel.
     int     line_length;
     int     endian;
@@ -67,14 +70,10 @@ typedef struct s_fdf
     int     zoom; // scale.
 } t_fdf;
 
+/* main.c: */
 int main(int argc, char **argv);
 
-/* parsing.c: */
-int     check_file_name(char *file);
-void    handle_error(char *message);
-
-/* utils.c: */
-void    free_tab(char **tab);
-void    free_map(t_map *map);
+/*start.c: */
+int check_file(char *file);
 
 #endif 

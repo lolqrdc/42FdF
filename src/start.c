@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   start.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/11 13:47:00 by lolq              #+#    #+#             */
-/*   Updated: 2025/02/13 18:44:19 by lolq             ###   ########.fr       */
+/*   Created: 2025/02/17 15:30:00 by loribeir          #+#    #+#             */
+/*   Updated: 2025/02/17 15:32:52 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int    check_file_name(char *file)
+/**
+ * @brief initialize the graphic variables and parsing. 
+ */
+
+int    check_file(char *file)
 {
     int len;
 
