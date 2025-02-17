@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:13:48 by lolq              #+#    #+#             */
-/*   Updated: 2025/02/17 15:53:39 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/17 18:13:15 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@
 
 typedef struct s_point
 {
-    float x;
-    float y;
+    float x; // 3D
+    float y; // 3D
     float z;
-    int screen_x; // projection of x.
-    int screen_y; // projection of y.
+    int screen_x; // projection 2D.
+    int screen_y; // projection 2D.
 } t_point;
 typedef struct s_img
 {
@@ -55,7 +55,7 @@ typedef struct s_img
 
 typedef struct s_map
 {
-    int     **z_matrice; // matrice stocking the height values.
+    int     **matrice; // matrice stocking the height values.
     int     height; // nbr of row.
     int     width; // nbr of colummsp.
 } t_map;
