@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:13:48 by lolq              #+#    #+#             */
-/*   Updated: 2025/02/18 13:34:27 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/18 18:42:34 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,12 @@ typedef struct s_fdf
 
 /* main.c: */
 int main(int argc, char **argv);
+int print_error(char *message);
 
 /*start.c: */
-//int     check_file(char *file);
+int     check_file(char *file);
+void    calc_map(t_map *map, char *file);
+void    check_map(t_map *map, char *file);
+void    parse_map(t_fdf *fdf, char *file)
 
 #endif 

@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:54:15 by lolq              #+#    #+#             */
-/*   Updated: 2025/02/18 13:21:10 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/18 18:38:37 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,8 @@ int main(int argc, char **argv)
         return (ft_putstr_fd("Error: invalid map\n", 2), FAIL);
     
 }
-
+int    print_error(char *message)
+{
+    ft_printf("%s\n", message);
+    exit(1); 
+}
