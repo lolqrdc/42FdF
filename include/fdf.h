@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:13:48 by lolq              #+#    #+#             */
-/*   Updated: 2025/02/17 18:13:15 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/18 13:34:27 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,16 +64,18 @@ typedef struct s_fdf
 {
     void    *mlx; // mlx instance.
     void    *windows; // window.
-    t_img   img; // image data.
+    t_img   *img; // image data.
     t_map   map; // map data.
-    t_point center; // coordinates.
+    t_point center; // centre de l'ecran.
     int     zoom; // scale.
+    int     x;
+    int     y;
 } t_fdf;
 
 /* main.c: */
 int main(int argc, char **argv);
 
 /*start.c: */
-int check_file(char *file);
+//int     check_file(char *file);
 
 #endif 

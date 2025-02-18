@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:54:15 by lolq              #+#    #+#             */
-/*   Updated: 2025/02/18 08:06:41 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/18 13:21:10 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int main(int argc, char **argv)
 {
-    t_fdf   *fdf;
 
     if (argc != 2)
         return (ft_putstr_fd("Usage: ./fdf <filename>\n", 2), FAIL);

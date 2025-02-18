@@ -6,51 +6,52 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:30:00 by loribeir          #+#    #+#             */
-/*   Updated: 2025/02/18 08:12:48 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/18 14:07:04 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-/**
- * @brief initializes mlx components and parsing. 
- */
-
-int    check_file(char *file)
+/* initialisation pour ouvrir, afficher la fenetre. */
+int init_components(t_fdf *fdf)
 {
-    int len;
-
-    len = ft_strlen(file);
-    if (!file)
-        return (FAIL);
-    if (len < 4)
-        return (FAIL);
-    if (ft_strncmp(file + len - 4, ".fdf", 4) == 0)
-        return (SUCCESS);
-    return (FAIL);
+    fdf->mlx = mlx_init();
+    if (fdf->mlx == NULL)
+        return (perror("Error: initialization mlx failed\n"), FAIL);
+    fdf->windows = mlx_new_window(fdf->mlx, WIN_WIDTH, WIN_HEIGHT, "FdF");
+    if (fdf->windows == NULL)
+        return (free(fdf->mlx), FAIL);
+    fdf->img->image = mlx_new_image(fdf->mlx, WIN_WIDTH, WIN_HEIGHT);
+    fdf->img->img_addr = mlx_get_data_addr(fdf->img->image, fdf->img->bits_pixel, \
+    fdf->img->line_length, fdf->img->endian);
+    return (SUCCESS);
 }
 
-void    check_format(t_fdf *fdf, char *file)
+/* verifier si le fichier est correct. */
+int check_file(char *file)
 {
-    int     i;
-    int     fd;
-    char    *line;
-    char    **tab;
+    char    *ext;
+
+    if (!file)
+        return (perror("Error: file is NULL\n"), FAIL);
+    ext = ft_strrchr(file, '.');
+    if (!ext || ft_strncmp(ext, ".fdf", 4) != 0)
+        return(perror("Error: invalid file\n"), FAIL);
+    return (SUCCESS);
+}
+
+/* calc_map: calculate the nb of rows and colums to have the dimension of the map. */
+void    calc_map(t_map *map, char *file)
+{
+
+}
+/* check_map: compare the row and colums to check if the map is consistent. */
+void    check_map(t_map *map, char *file)
+{
     
-    i = 0;
-    fd = open(file, O_RDONLY);
-    line = get_next_line(fd);
-    while (line)
-    {
-        tab = ft_split(line, ' ');
-        free(line);
-        while (tab[i])
-            free(tab[i++]);
-        free(tab);
-        if (i < fdf->map.width || i > fdf->map.height)
-            ft_putstr_fd("Error: please provide a correct map format.\n", 2);
-        line = get_next_line(fd);
-    }
-    free(line);
-    close (fd);
+}
+/* parse_map: malloc for the matrix and add correct infos into it. */
+void    parse_map(t_map *map, char *file)
+{
+    
 }
