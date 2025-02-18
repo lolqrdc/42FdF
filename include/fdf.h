@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:13:48 by lolq              #+#    #+#             */
-/*   Updated: 2025/02/18 18:42:34 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/18 20:30:37 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ typedef struct s_fdf
     void    *mlx; // mlx instance.
     void    *windows; // window.
     t_img   *img; // image data.
-    t_map   map; // map data.
+    t_map   *map; // map data.
     t_point center; // centre de l'ecran.
     int     zoom; // scale.
     int     x;

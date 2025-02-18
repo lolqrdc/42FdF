@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:30:00 by loribeir          #+#    #+#             */
-/*   Updated: 2025/02/18 18:47:34 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/18 20:33:24 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,30 +22,30 @@ int init_components(t_fdf *fdf)
     if (fdf->windows == NULL)
         return (free(fdf->mlx), FAIL);
     fdf->img->image = mlx_new_image(fdf->mlx, WIN_WIDTH, WIN_HEIGHT);
-    fdf->img->img_addr = mlx_get_data_addr(fdf->img->image, fdf->img->bits_pixel, \
-    fdf->img->line_length, fdf->img->endian);
+    fdf->img->img_addr = mlx_get_data_addr(fdf->img->image, fdf->img->bits_pixel,
+                                           fdf->img->line_length, fdf->img->endian);
     return (SUCCESS);
 }
 
 /*check_file: check if the file is correct.*/
 int check_file(char *file)
 {
-    char    *ext;
+    char *ext;
 
     if (!file)
         return (print_error("Error: file is NULL\n"), FAIL);
     ext = ft_strrchr(file, '.');
     if (!ext || ft_strncmp(ext, ".fdf", 4) != 0)
-        return(print_error("Error: invalid file\n"), FAIL);
+        return (print_error("Error: invalid file\n"), FAIL);
     return (SUCCESS);
 }
 
 /*calc_map: calculate the nb of rows and colums to have the dimension of the map.*/
-void    calc_map(t_map *map, char *file)
+void calc_map(t_map *map, char *file)
 {
-    char    *line;
-    char    **tab;
-    int     fd;
+    char *line;
+    char **tab;
+    int fd;
 
     fd = open(file, O_RDONLY);
     if (fd < 0)
@@ -63,41 +63,52 @@ void    calc_map(t_map *map, char *file)
         line = get_next_line(fd);
     }
     free(tab);
-    close (fd);
+    close(fd);
 }
 /*check_map: compare the row and colums to check if the map is consistent.*/
-void    check_map(t_map *map, char *file)
+void check_map(t_map *map, char *file)
 {
-    char    *line;
-    char    **tab;
-    int     fd;
-    int     i;
+    char *line;
+    char **tab;
+    int fd;
+    int i;
 
-    i = 0;
     fd = open(file, O_RDONLY);
+    if (fd < 0)
+        return (print_error("Error: failed to open file\n"));
     line = get_next_line(fd);
     while (line)
     {
+        i = 0;
         tab = ft_split(line, ' ');
         free(line);
         while (tab[i])
-            free(tab[i++]);
-        free(tab);
-        if (i < map->width || i > map->width)
-            print_error("Error: wrong map format\n");
+            i++;
+        free_tab(tab);
+        if (i != map->width)
+            return (close(fd), print_error("Error: wrong map format\n"));
+        free(line);
         line = get_next_line(fd);
     }
-    free(line);
     close(fd);
 }
 /*parse_map: malloc for the matrix and add correct infos into it.*/
-void    parse_map(t_fdf *fdf, char *file)
+void parse_map(t_fdf *fdf, char *file)
 {
+    int     i;    
     int     fd;
     char    *line;
     char    **tab;
-    
-    fdf->map->matrice = malloc(sizeof(fdf->map->height));
-    if (!map->matrice)
+
+    fdf->map->matrice = malloc(sizeof(int *) * fdf->map->height);
+    if (!fdf->map->matrice)
         return (print_error("Error: malloc failed\n"));
+    i = 0;
+    while (i < fdf->map->height)
+    {
+        fdf->map->matrice[i] = malloc(sizeof(int) * fdf->map->width);
+        if (!fdf->map->matrice[i])
+            return(free_matrice(fdf->map), print_error("Error: malloc failed\n"));
+    }
+    
 }
