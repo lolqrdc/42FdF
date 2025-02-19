@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:54:15 by lolq              #+#    #+#             */
-/*   Updated: 2025/02/19 14:14:19 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/19 19:10:59 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int main(int argc, char **argv)
     init_matrice(fdf);
     parse_map(fdf, argv[1]);
     if (init_components(fdf) != 0)
-        return (FAIL);
+        return (free(fdf), FAIL);
     return(0);
 }
 
