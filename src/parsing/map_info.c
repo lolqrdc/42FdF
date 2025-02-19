@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_info.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:30:00 by loribeir          #+#    #+#             */
-/*   Updated: 2025/02/19 14:39:19 by lolq             ###   ########.fr       */
+/*   Updated: 2025/02/19 17:52:19 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int init_components(t_fdf *fdf)
     fdf->img->image = mlx_new_image(fdf->mlx, WIN_WIDTH, WIN_HEIGHT);
     fdf->img->img_addr = mlx_get_data_addr(fdf->img->image, &fdf->img->bits_pixel,
                                            &fdf->img->line_length, &fdf->img->endian);
+    mlx_loop(fdf->mlx);
     return (SUCCESS);
 }
 
@@ -48,7 +49,7 @@ void calc_map(t_map *map, char *file)
         print_error("Error: split failed\n");
     while (tab[map->width])
         map->width++;
-    map->height++; // Compte la première ligne
+    map->height++;
     free_tab(tab);
     free(line);
     while ((line = get_next_line(fd)) != NULL)
