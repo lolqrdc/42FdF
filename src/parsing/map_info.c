@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:30:00 by loribeir          #+#    #+#             */
-/*   Updated: 2025/02/19 12:06:38 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/19 14:19:24 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ void calc_map(t_map *map, char *file)
     char **tab;
     int fd;
 
+    map->width = 0;
+    map->height = 0;
     fd = open(file, O_RDONLY);
     if (fd < 0)
         print_error("Error: failed to open file\n");
@@ -44,13 +46,15 @@ void calc_map(t_map *map, char *file)
     tab = ft_split(line, ' ');
     while (tab[map->width])
         map->width++;
-    while (line)
-    {
-        free(line);
-        map->height++;
-        line = get_next_line(fd);
-    }
+    free(line);
     free(tab);
+    while ((line = get_next_line(fd)) != NULL)
+    {
+        map->height++;
+        free(line);
+        //line = get_next_line(fd);
+    }
+    //free(tab);
     close(fd);
 }
 
@@ -84,5 +88,24 @@ void parse_map(t_fdf *fdf, char *file)
 /*init_matrice: malloc matrix and set default values.*/
 void    init_matrice(t_fdf *fdf)
 {
-       
+    int i;
+    int j;
+
+    fdf->map->matrice = malloc(sizeof(int *) * fdf->map->height);
+    if (!fdf->map->matrice)
+        print_error("Error: malloc failed");
+    i = 0;
+    while (i < fdf->map->height)
+    {
+        fdf->map->matrice[i] = malloc(sizeof(int) * fdf->map->width);
+        if (!fdf->map->matrice[i])
+            print_error("Error: malloc failed");
+        j = 0;
+        while (j < fdf->map->width)
+        {
+            fdf->map->matrice[i][j] = 0;
+            j++;
+        }
+        i++;
+    }
 }
