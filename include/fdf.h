@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:13:48 by lolq              #+#    #+#             */
-/*   Updated: 2025/02/18 20:30:37 by lolq             ###   ########.fr       */
+/*   Updated: 2025/02/19 12:08:40 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,13 +73,22 @@ typedef struct s_fdf
 } t_fdf;
 
 /* main.c: */
-int main(int argc, char **argv);
-int print_error(char *message);
+int     main(int argc, char **argv);
+void    init_fdf(t_fdf *fdf);
 
-/*start.c: */
-int     check_file(char *file);
+/*parsing: parsing.c */
+void    check_file(char *file);
+int     print_error(char *message);
+
+/*parsing: cleanup.c */
+void    free_tab(char **tab);
+void    free_matrice(t_fdf *fdf);
+
+/*parsing: map_info.c */
+int     init_components(t_fdf *fdf);
 void    calc_map(t_map *map, char *file);
-void    check_map(t_map *map, char *file);
-void    parse_map(t_fdf *fdf, char *file)
+void    parse_map(t_fdf *fdf, char *file);
+void    init_matrice(t_fdf *fdf);
 
-#endif 
+/*render: points.c */
+#endif

@@ -19,9 +19,10 @@ RM = rm -f
 
 # SOURCES FILES 
 SRC = $(SRC_DIR)main.c \
-		$(SRC_DIR)utils.c \
 		$(SRC_DIR)parsing/parsing.c \
-		$(SRC_DIR)parsing/create_map.c \
+		$(SRC_DIR)parsing/map_info.c \
+		$(SRC_DIR)parsing/cleanup.c \
+		$(SRC_DIR)render/points.c \
 
 
 # CONNECT ALL SOURCES 
