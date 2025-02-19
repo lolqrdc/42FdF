@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cleanup.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 10:43:16 by loribeir          #+#    #+#             */
-/*   Updated: 2025/02/19 11:29:18 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/19 14:39:19 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,14 @@ void    free_tab(char **tab)
 {
     int i;
 
+    if (!tab)
+        return;
     i = 0;
-    while (tab)
-        free(tab[i++]);
+    while (tab[i])
+    {
+        free(tab[i]);
+        i++;
+    }
     free(tab);
 }
 

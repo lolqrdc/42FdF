@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_info.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:30:00 by loribeir          #+#    #+#             */
-/*   Updated: 2025/02/19 14:19:24 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/19 14:39:19 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,17 +44,18 @@ void calc_map(t_map *map, char *file)
     if (!line)
         print_error("Error: map is empty\n");
     tab = ft_split(line, ' ');
+    if (!tab)
+        print_error("Error: split failed\n");
     while (tab[map->width])
         map->width++;
+    map->height++; // Compte la première ligne
+    free_tab(tab);
     free(line);
-    free(tab);
     while ((line = get_next_line(fd)) != NULL)
     {
         map->height++;
         free(line);
-        //line = get_next_line(fd);
     }
-    //free(tab);
     close(fd);
 }
 
@@ -66,23 +67,21 @@ void parse_map(t_fdf *fdf, char *file)
     char    **tab;
     
     fd = open(file, O_RDONLY);
-    fdf->map->matrice = malloc(sizeof(int) * fdf->map->width);
-    if (!fdf->map->matrice)
-        print_error("Error: malloc failed");
-    while ((line = get_next_line(fd)) && fdf->y < fdf->map->width)
+    fdf->y = 0;
+    while ((line = get_next_line(fd)) && fdf->y < fdf->map->height)
     {
         tab = ft_split(line, ' ');
         fdf->x = 0;
         while (tab[fdf->x] && fdf->x < fdf->map->width)
         {
-            fdf->map->matrice[fdf->x][fdf->y] = ft_atoi(tab[fdf->x]);
+            fdf->map->matrice[fdf->y][fdf->x] = ft_atoi(tab[fdf->x]);
             fdf->x++;
         }
         free_tab(tab);
         free(line);
         fdf->y++;
     }
-    close (fd);
+    close(fd);
 }
 
 /*init_matrice: malloc matrix and set default values.*/
