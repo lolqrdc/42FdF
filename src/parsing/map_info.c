@@ -6,18 +6,27 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:30:00 by loribeir          #+#    #+#             */
-/*   Updated: 2025/02/19 19:12:47 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/19 19:40:34 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+/*get_map: call all necessary functions to get a map. */
+int get_map(t_fdf *fdf, char *file)
+{
+    init_fdf(fdf);
+    calc_map(fdf->map, file);
+    init_matrice(fdf);
+    parse_map(fdf, file);
+    return (SUCCESS);
+}
 /*init_components: initialization for graphic variables. */
 int init_components(t_fdf *fdf)
 {
     fdf->mlx = mlx_init();
     if (fdf->mlx == NULL)
-        return (perror("Error: initialization mlx failed\n"), FAIL);
+        return (print_error("Error: initialization mlx failed\n"), FAIL);
     fdf->windows = mlx_new_window(fdf->mlx, WIN_WIDTH, WIN_HEIGHT, "FdF");
     if (fdf->windows == NULL)
         return (free(fdf->mlx), FAIL);
@@ -28,7 +37,6 @@ int init_components(t_fdf *fdf)
     return (SUCCESS);
 }
 
-
 /*calc_map: calculate the nb of rows and colums to have the dimension of the map.*/
 void calc_map(t_map *map, char *file)
 {
@@ -36,8 +44,6 @@ void calc_map(t_map *map, char *file)
     char **tab;
     int fd;
 
-    map->width = 0;
-    map->height = 0;
     fd = open(file, O_RDONLY);
     if (fd < 0)
         print_error("Error: failed to open file\n");

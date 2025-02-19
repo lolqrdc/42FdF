@@ -1,12 +1,12 @@
 PROJECT: FIL DE FER
 PARSING: 
-    ☐ verify if the file is a ".fdf" -> "qu’on part du principe qu’une carte sera correctement formatée dans le fichier passé en paramètre."
+    ✔ verify if the file is a ".fdf" -> "qu’on part du principe qu’une carte sera correctement formatée dans le fichier passé en paramètre." @done(25-02-19 19:38)
 
 MAP_INFO:
-    ☐ initialize graphic variables.
-    ☐ calc the nb of rows + colums to have dimension of the map.
+    ✔ initialize graphic variables. @done(25-02-19 19:38)
+    ✔ calc the nb of rows + colums to have dimension of the map. @done(25-02-19 19:38)
     ✘ compare the rows and colums to check if the map is consistent. @cancelled(25-02-19 11:22)
-    ☐ malloc forthe matrix + add correct infos into it.
+    ✔ malloc forthe matrix + add correct infos into it. @done(25-02-19 19:38)
 
 RENDER:
     ☐ points.c: create 3 and 2 dimensional point tables.

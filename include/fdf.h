@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:13:48 by lolq              #+#    #+#             */
-/*   Updated: 2025/02/19 12:08:40 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/19 19:34:49 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ void    free_tab(char **tab);
 void    free_matrice(t_fdf *fdf);
 
 /*parsing: map_info.c */
+int     get_map(t_fdf *fdf, char *file);
 int     init_components(t_fdf *fdf);
 void    calc_map(t_map *map, char *file);
 void    parse_map(t_fdf *fdf, char *file);

@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:54:15 by lolq              #+#    #+#             */
-/*   Updated: 2025/02/19 19:10:59 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/19 19:35:53 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,9 @@ int main(int argc, char **argv)
         return (free(fdf), print_error("Usage: ./fdf <filename>"), FAIL);
     if (!fdf)
         return(print_error("Error: allocation failed"), FAIL);
-    init_fdf(fdf);
-    calc_map(fdf->map, argv[1]);
-    init_matrice(fdf);
-    parse_map(fdf, argv[1]);
-    if (init_components(fdf) != 0)
+    if (get_map(fdf, argv[1]) != SUCCESS)
+        return (free(fdf), FAIL);
+    if (init_components(fdf) != SUCCESS)
         return (free(fdf), FAIL);
     return(0);
 }
