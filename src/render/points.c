@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 09:37:59 by loribeir          #+#    #+#             */
-/*   Updated: 2025/02/20 11:52:26 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/20 14:16:25 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,31 @@ t_point *create_3dpoints(t_fdf *fdf)
 
 void    project_2d(t_point *point)
 {
-
+    float   tmp_x;
+    float   tmp_y;
+    
+    tmp_x = point->x;
+    tmp_y = point->y;
+    point->screen_x = (tmp_x - tmp_y) * cos(ANGLE);
+    point->screen_x = -point->z + (tmp_x + tmp_y) * sin(ANGLE);
 }
 
 void    apply_zoom(t_point *point, t_fdf *fdf)
 {
-
+    point->screen_x *= ZOOM;
+    point->screen_y *= ZOOM;
 }
 void    center_map(t_fdf *fdf)
 {
+    int i;
+    int total_pts;
 
+    i = 0;
+    total_pts = fdf->map->height * fdf->map->width;
+    while (i < total_pts)
+    {
+        fdf->points[i].screen_x += (WIN_WIDTH / 2);
+        fdf->points[i].screen_y += (WIN_HEIGHT / 2);
+        i++;
+    }
 }

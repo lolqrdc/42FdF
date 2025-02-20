@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:13:48 by lolq              #+#    #+#             */
-/*   Updated: 2025/02/19 19:34:49 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/20 14:15:34 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 /* WINDOW SETTINGS */
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
+# define ANGLE 0.523599
 # define ZOOM 30
 
 /* COLORS */
@@ -67,6 +68,7 @@ typedef struct s_fdf
     t_img   *img; // image data.
     t_map   *map; // map data.
     t_point center; // centre de l'ecran.
+    t_point *points;
     int     zoom; // scale.
     int     x;
     int     y;
