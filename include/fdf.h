@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:13:48 by lolq              #+#    #+#             */
-/*   Updated: 2025/02/20 14:15:34 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/20 17:38:52 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,4 +94,12 @@ void    parse_map(t_fdf *fdf, char *file);
 void    init_matrice(t_fdf *fdf);
 
 /*render: points.c */
+t_point *create_3dpoints(t_fdf *fdf);
+void    project_2d(t_point *point);
+void    center_map(t_fdf *fdf);
+//void    apply_zoom(t_point *point, t_fdf *fdf);
+
+/*render: render.c */
+void    render_map(t_fdf *fdf);
+
 #endif

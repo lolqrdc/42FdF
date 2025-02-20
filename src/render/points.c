@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 09:37:59 by loribeir          #+#    #+#             */
-/*   Updated: 2025/02/20 14:16:25 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/20 15:31:50 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ void    project_2d(t_point *point)
     point->screen_x = -point->z + (tmp_x + tmp_y) * sin(ANGLE);
 }
 
-void    apply_zoom(t_point *point, t_fdf *fdf)
+/*void    apply_zoom(t_point *point, t_fdf *fdf)
 {
     point->screen_x *= ZOOM;
     point->screen_y *= ZOOM;
-}
+}*/
 void    center_map(t_fdf *fdf)
 {
     int i;

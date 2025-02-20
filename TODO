@@ -14,4 +14,20 @@ RENDER:
     ☐ draw.c: all formulas + functions allowing to draw what I want.
     ☐ hooks.c: give instructions to interact with mouse and keyboard.
 
-0,52 // 29 degres
+---
+flow explanation: 
+1. create_3dpoints: creates the initial 3d points array.
+    input: raw map data (x, y, z coordinates)
+    output: array of t_point with original coordinates
+2. project_2d: converts 3d coordinates to 2d using iso projection
+    input: a single point with x, y, z coordinates.
+    output: calculates screen_x, and screen_y for display
+3. apply_zoom: scales the projected coordinates
+    input: projected 2d coordinates
+    output: scaled coordinates for better visibility
+4. center_map: centers the entire proj on screen
+    input: all points after projection and zoom
+    output: final screen coordinates centered in window.
+
+render_map: show how all the transformation functions work together in sequence
+to prepare your points for display. 

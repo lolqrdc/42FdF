@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:30:00 by loribeir          #+#    #+#             */
-/*   Updated: 2025/02/20 10:00:15 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/20 15:53:14 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,6 @@ int get_map(t_fdf *fdf, char *file)
     calc_map(fdf->map, file);
     init_matrice(fdf);
     parse_map(fdf, file);
-    return (SUCCESS);
-}
-
-/*init_components: initialization for graphic variables. */
-int init_components(t_fdf *fdf)
-{
-    fdf->mlx = mlx_init();
-    if (fdf->mlx == NULL)
-        return (print_error("Error: initialization mlx failed\n"), FAIL);
-    fdf->windows = mlx_new_window(fdf->mlx, WIN_WIDTH, WIN_HEIGHT, "FdF");
-    if (fdf->windows == NULL)
-        return (free(fdf->mlx), FAIL);
-    fdf->img->image = mlx_new_image(fdf->mlx, WIN_WIDTH, WIN_HEIGHT);
-    fdf->img->img_addr = mlx_get_data_addr(fdf->img->image, &fdf->img->bits_pixel,
-                                           &fdf->img->line_length, &fdf->img->endian);
-    mlx_loop(fdf->mlx);
     return (SUCCESS);
 }
 
