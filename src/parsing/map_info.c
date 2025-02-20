@@ -6,11 +6,16 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:30:00 by loribeir          #+#    #+#             */
-/*   Updated: 2025/02/19 19:40:34 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/20 10:00:15 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+/**
+ * @brief: The goal is to get all necessary info about the map passed as argu-
+ * ment, to store the map data. 
+ */
 
 /*get_map: call all necessary functions to get a map. */
 int get_map(t_fdf *fdf, char *file)
@@ -21,6 +26,7 @@ int get_map(t_fdf *fdf, char *file)
     parse_map(fdf, file);
     return (SUCCESS);
 }
+
 /*init_components: initialization for graphic variables. */
 int init_components(t_fdf *fdf)
 {
