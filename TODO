@@ -9,7 +9,7 @@ MAP_INFO:
     ✔ malloc forthe matrix + add correct infos into it. @done(25-02-19 19:38)
 
 RENDER:
-    ☐ points.c: create 3 and 2 dimensional point tables.
+    ✔ points.c: create 3 and 2 dimensional point tables. @done(25-02-23 13:55)
     ☐ limits.c: define which point should connect to another point.
     ☐ draw.c: all formulas + functions allowing to draw what I want.
     ☐ hooks.c: give instructions to interact with mouse and keyboard.

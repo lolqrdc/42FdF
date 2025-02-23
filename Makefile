@@ -23,7 +23,8 @@ SRC = $(SRC_DIR)main.c \
 		$(SRC_DIR)parsing/map_info.c \
 		$(SRC_DIR)parsing/cleanup.c \
 		$(SRC_DIR)render/points.c \
-
+		$(SRC_DIR)render/draw.c \
+		$(SRC_DIR)render/render.c \
 
 # CONNECT ALL SOURCES 
 

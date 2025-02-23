@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:13:48 by lolq              #+#    #+#             */
-/*   Updated: 2025/02/20 17:38:52 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/23 16:49:53 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,15 @@ typedef struct s_point
     int screen_x; // projection 2D.
     int screen_y; // projection 2D.
 } t_point;
+
+typedef struct t_line
+{
+    int dx;
+    int dy;
+    int sx;
+    int sy;
+    int error;
+} t_line;
 typedef struct s_img
 {
     void    *image; // ptr to the image created by mlx.
@@ -69,13 +78,14 @@ typedef struct s_fdf
     t_map   *map; // map data.
     t_point center; // centre de l'ecran.
     t_point *points;
-    int     zoom; // scale.
+    int     scale; // scale.
     int     x;
     int     y;
 } t_fdf;
 
 /* main.c: */
 int     main(int argc, char **argv);
+int     init_components(t_fdf *fdf);
 void    init_fdf(t_fdf *fdf);
 
 /*parsing: parsing.c */
@@ -88,18 +98,25 @@ void    free_matrice(t_fdf *fdf);
 
 /*parsing: map_info.c */
 int     get_map(t_fdf *fdf, char *file);
-int     init_components(t_fdf *fdf);
 void    calc_map(t_map *map, char *file);
 void    parse_map(t_fdf *fdf, char *file);
 void    init_matrice(t_fdf *fdf);
 
 /*render: points.c */
 t_point *create_3dpoints(t_fdf *fdf);
-void    project_2d(t_point *point);
+void    project_2d(t_point *point, float scale);
 void    center_map(t_fdf *fdf);
-//void    apply_zoom(t_point *point, t_fdf *fdf);
+
+/*render: draw.c */
+void    put_pixel(t_fdf *fdf, int x, int y, int color);
+void    init_line(t_line *line, t_point *first, t_point *end);
+void    draw_line(t_fdf *fdf, t_point *first, t_point *end);
+void    draw_map(t_fdf *fdf);
+
 
 /*render: render.c */
 void    render_map(t_fdf *fdf);
+void    calc_scale(t_fdf *fdf);
+
 
 #endif

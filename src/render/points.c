@@ -6,16 +6,11 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 09:37:59 by loribeir          #+#    #+#             */
-/*   Updated: 2025/02/20 15:31:50 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/23 16:36:28 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-/**
- * @brief: create 3D point array from map data, implement 3D to 2D conversion
- * function (iso proj), create 2D point array from 3D points.
- */
 
 t_point *create_3dpoints(t_fdf *fdf)
 {
@@ -43,33 +38,33 @@ t_point *create_3dpoints(t_fdf *fdf)
     return (pts);
 }
 
-void    project_2d(t_point *point)
+void    project_2d(t_point *point, float scale)
 {
-    float   tmp_x;
-    float   tmp_y;
-    
-    tmp_x = point->x;
-    tmp_y = point->y;
-    point->screen_x = (tmp_x - tmp_y) * cos(ANGLE);
-    point->screen_x = -point->z + (tmp_x + tmp_y) * sin(ANGLE);
+    int sca_x;
+    int sca_y;
+    int sca_z;
+
+    sca_x = point->x * scale;
+    sca_y = point->y * scale;
+    sca_z = point->z * scale;
+    point->screen_x = (sca_x - sca_y) * cos(ANGLE);
+    point->screen_y = (sca_x + sca_y) * sin(ANGLE) - sca_z;
 }
 
-/*void    apply_zoom(t_point *point, t_fdf *fdf)
-{
-    point->screen_x *= ZOOM;
-    point->screen_y *= ZOOM;
-}*/
 void    center_map(t_fdf *fdf)
 {
     int i;
     int total_pts;
-
+    float   off_x;
+    float   off_y;
     i = 0;
     total_pts = fdf->map->height * fdf->map->width;
+    off_x = (WIN_WIDTH / 2) - ((fdf->map->width * fdf->scale) / 2);
+    off_y = (WIN_HEIGHT / 2) - ((fdf->map->height * fdf->scale) / 2);
     while (i < total_pts)
     {
-        fdf->points[i].screen_x += (WIN_WIDTH / 2);
-        fdf->points[i].screen_y += (WIN_HEIGHT / 2);
+        fdf->points[i].screen_x += off_x;
+        fdf->points[i].screen_y += off_y;
         i++;
     }
 }

@@ -6,18 +6,12 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:30:00 by loribeir          #+#    #+#             */
-/*   Updated: 2025/02/20 15:53:14 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/23 16:03:19 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-/**
- * @brief: The goal is to get all necessary info about the map passed as argu-
- * ment, to store the map data. 
- */
-
-/*get_map: call all necessary functions to get a map. */
 int get_map(t_fdf *fdf, char *file)
 {
     init_fdf(fdf);
@@ -27,7 +21,6 @@ int get_map(t_fdf *fdf, char *file)
     return (SUCCESS);
 }
 
-/*calc_map: calculate the nb of rows and colums to have the dimension of the map.*/
 void calc_map(t_map *map, char *file)
 {
     char *line;
@@ -56,7 +49,6 @@ void calc_map(t_map *map, char *file)
     close(fd);
 }
 
-/*parse_map: malloc for the matrix and add correct infos into it.*/
 void parse_map(t_fdf *fdf, char *file)
 {
     int     fd;
@@ -81,7 +73,6 @@ void parse_map(t_fdf *fdf, char *file)
     close(fd);
 }
 
-/*init_matrice: malloc matrix and set default values.*/
 void    init_matrice(t_fdf *fdf)
 {
     int i;
