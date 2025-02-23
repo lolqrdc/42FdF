@@ -6,7 +6,7 @@
 /*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:54:15 by lolq              #+#    #+#             */
-/*   Updated: 2025/02/23 22:27:16 by lolq             ###   ########.fr       */
+/*   Updated: 2025/02/23 23:09:17 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int main(int argc, char **argv)
     if (!fdf)
         return(print_error("Error: allocation failed"), FAIL);
     if (get_map(fdf, argv[1]) != SUCCESS)
-        return (free(fdf), FAIL);
+        return (cleanup_fdf(fdf), FAIL);
     if (init_components(fdf) != SUCCESS)
-        return (free(fdf), FAIL);
+        return (cleanup_fdf(fdf), FAIL);
     return(0);
 }
 

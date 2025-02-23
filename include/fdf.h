@@ -6,7 +6,7 @@
 /*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:13:48 by lolq              #+#    #+#             */
-/*   Updated: 2025/02/23 22:26:28 by lolq             ###   ########.fr       */
+/*   Updated: 2025/02/23 22:51:26 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ int     print_error(char *message);
 /*parsing: cleanup.c */
 void    free_tab(char **tab);
 void    free_matrice(t_fdf *fdf);
+void    cleanup_fdf(t_fdf *fdf);
 
 /*parsing: map_info.c */
 int     get_map(t_fdf *fdf, char *file);
@@ -117,7 +118,6 @@ void    draw_map(t_fdf *fdf);
 /*render: hooks.c */
 int     close_window(t_fdf *fdf);
 int     keyboard_handler(int keycode, t_fdf *fdf);
-int     mouse_handler(int mouse, int x, int y, t_fdf *fdf);
 void    setup_hooks(t_fdf *fdf);
 
 /*render: render.c */

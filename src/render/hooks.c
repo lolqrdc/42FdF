@@ -6,7 +6,7 @@
 /*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 10:00:00 by loribeir          #+#    #+#             */
-/*   Updated: 2025/02/23 22:38:31 by lolq             ###   ########.fr       */
+/*   Updated: 2025/02/23 23:03:03 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,12 @@ int keyboard_handler(int keycode, t_fdf *fdf)
 
 int close_window(t_fdf *fdf)
 {
-    mlx_destroy_window(fdf->mlx, fdf->windows);
-    exit (0);
+    if (fdf->img && fdf->img->image)
+        mlx_destroy_image(fdf->mlx, fdf->img->image);
+    if (fdf->windows)
+        mlx_destroy_window(fdf->mlx, fdf->windows);
+    cleanup_fdf(fdf);
+    exit(0);
 }
 
 void    setup_hooks(t_fdf *fdf)

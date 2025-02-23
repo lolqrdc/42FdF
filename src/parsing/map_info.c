@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_info.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:30:00 by loribeir          #+#    #+#             */
-/*   Updated: 2025/02/23 16:03:19 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/23 23:17:18 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ void calc_map(t_map *map, char *file)
 
     fd = open(file, O_RDONLY);
     if (fd < 0)
-        print_error("Error: failed to open file\n");
+        print_error("Error: failed to open file.");
     line = get_next_line(fd);
     if (!line)
-        print_error("Error: map is empty\n");
+        print_error("Error: map is empty");
     tab = ft_split(line, ' ');
     if (!tab)
-        print_error("Error: split failed\n");
+        print_error("Error: split failed");
     while (tab[map->width])
         map->width++;
     map->height++;
