@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/10 18:54:15 by lolq              #+#    #+#             */
-/*   Updated: 2025/02/23 14:15:43 by loribeir         ###   ########.fr       */
+/*   Created: 2025/02/23 21:58:15 by lolq              #+#    #+#             */
+/*   Updated: 2025/02/23 22:27:20 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void    init_fdf(t_fdf *fdf)
     fdf->map->height = 0;
     fdf->map->matrice = NULL;
 }
+
 int init_components(t_fdf *fdf)
 {
     fdf->mlx = mlx_init();
@@ -40,23 +41,7 @@ int init_components(t_fdf *fdf)
     render_map(fdf);
     draw_map(fdf);
     mlx_put_image_to_window(fdf->mlx, fdf->windows, fdf->img->image, 0, 0);
+    setup_hooks(fdf);
     mlx_loop(fdf->mlx);
     return (SUCCESS);
 }
-
-int main(int argc, char **argv)
-{
-    t_fdf *fdf;
-
-    fdf = malloc(sizeof(t_fdf));
-    if (argc != 2)
-        return (free(fdf), print_error("Usage: ./fdf <filename>"), FAIL);
-    if (!fdf)
-        return(print_error("Error: allocation failed"), FAIL);
-    if (get_map(fdf, argv[1]) != SUCCESS)
-        return (free(fdf), FAIL);
-    if (init_components(fdf) != SUCCESS)
-        return (free(fdf), FAIL);
-    return(0);
-}
-

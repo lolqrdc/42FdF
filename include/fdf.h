@@ -6,7 +6,7 @@
 /*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:13:48 by lolq              #+#    #+#             */
-/*   Updated: 2025/02/23 20:16:03 by lolq             ###   ########.fr       */
+/*   Updated: 2025/02/23 22:26:28 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,8 @@ typedef struct s_fdf
 
 /* main.c: */
 int     main(int argc, char **argv);
+
+/* parsing.c: init.c */
 int     init_components(t_fdf *fdf);
 void    init_fdf(t_fdf *fdf);
 
@@ -113,7 +115,10 @@ void    draw_line(t_fdf *fdf, t_point *first, t_point *end);
 void    draw_map(t_fdf *fdf);
 
 /*render: hooks.c */
-int     mouse_handler(int button, int x, int y, t_fdf *fdf);
+int     close_window(t_fdf *fdf);
+int     keyboard_handler(int keycode, t_fdf *fdf);
+int     mouse_handler(int mouse, int x, int y, t_fdf *fdf);
+void    setup_hooks(t_fdf *fdf);
 
 /*render: render.c */
 void    render_map(t_fdf *fdf);

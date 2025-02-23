@@ -19,6 +19,7 @@ RM = rm -f
 
 # SOURCES FILES 
 SRC = $(SRC_DIR)main.c \
+		$(SRC_DIR)parsing/init.c \
 		$(SRC_DIR)parsing/parsing.c \
 		$(SRC_DIR)parsing/map_info.c \
 		$(SRC_DIR)parsing/cleanup.c \
