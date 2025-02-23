@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:50:44 by loribeir          #+#    #+#             */
-/*   Updated: 2025/02/23 18:17:36 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/23 20:02:47 by lolq             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,18 @@ void    center_map(t_fdf *fdf)
 
 void    calc_scale(t_fdf *fdf)
 {
-    float   w_scale;
-    float   h_scale;
+    float scale;
+    int   map_size;
 
-    w_scale = (WIN_WIDTH * 0.6) / (fdf->map->width + fdf->map->height);
-    h_scale = (WIN_HEIGHT * 0.6) / (fdf->map->height + fdf->map->width);
-    fdf->scale = w_scale;
-    if (h_scale < w_scale)
-        fdf->scale = h_scale;
+    map_size = fdf->map->width + fdf->map->height;
+    if (WIN_HEIGHT < WIN_WIDTH)
+        scale = WIN_HEIGHT;
+    else
+        scale = WIN_WIDTH;
+    fdf->scale = (scale / 2) / map_size;
+
     if (fdf->scale < 2)
         fdf->scale = 2;
-    if (fdf->scale > 30)
+    else if (fdf->scale > 30)
         fdf->scale = 30;
 }
