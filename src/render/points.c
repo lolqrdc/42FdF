@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 09:37:59 by loribeir          #+#    #+#             */
-/*   Updated: 2025/02/23 16:36:28 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/23 18:18:25 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,22 +49,4 @@ void    project_2d(t_point *point, float scale)
     sca_z = point->z * scale;
     point->screen_x = (sca_x - sca_y) * cos(ANGLE);
     point->screen_y = (sca_x + sca_y) * sin(ANGLE) - sca_z;
-}
-
-void    center_map(t_fdf *fdf)
-{
-    int i;
-    int total_pts;
-    float   off_x;
-    float   off_y;
-    i = 0;
-    total_pts = fdf->map->height * fdf->map->width;
-    off_x = (WIN_WIDTH / 2) - ((fdf->map->width * fdf->scale) / 2);
-    off_y = (WIN_HEIGHT / 2) - ((fdf->map->height * fdf->scale) / 2);
-    while (i < total_pts)
-    {
-        fdf->points[i].screen_x += off_x;
-        fdf->points[i].screen_y += off_y;
-        i++;
-    }
 }

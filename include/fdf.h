@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:13:48 by lolq              #+#    #+#             */
-/*   Updated: 2025/02/23 16:49:53 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/23 17:56:42 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,6 @@ void    init_matrice(t_fdf *fdf);
 /*render: points.c */
 t_point *create_3dpoints(t_fdf *fdf);
 void    project_2d(t_point *point, float scale);
-void    center_map(t_fdf *fdf);
 
 /*render: draw.c */
 void    put_pixel(t_fdf *fdf, int x, int y, int color);
@@ -113,10 +112,10 @@ void    init_line(t_line *line, t_point *first, t_point *end);
 void    draw_line(t_fdf *fdf, t_point *first, t_point *end);
 void    draw_map(t_fdf *fdf);
 
-
 /*render: render.c */
 void    render_map(t_fdf *fdf);
 void    calc_scale(t_fdf *fdf);
+void    center_map(t_fdf *fdf);
 
 
 #endif
