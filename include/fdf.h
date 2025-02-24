@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:13:48 by lolq              #+#    #+#             */
-/*   Updated: 2025/02/24 11:17:43 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/24 13:31:41 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int		init_components(t_fdf *fdf);
 void	init_fdf(t_fdf *fdf);
 
 /*parsing: parsing.c */
-void	check_file(char *file);
+void	check_file(char *file, t_fdf *fdf);
 int		print_error(char *message);
 
 /*parsing: cleanup.c */
@@ -102,9 +102,10 @@ void	cleanup_fdf(t_fdf *fdf);
 
 /*parsing: map_info.c */
 int		get_map(t_fdf *fdf, char *file);
-void	calc_map(t_map *map, char *file);
+void calc_map(t_map *map, int fd);
 void	parse_map(t_fdf *fdf, char *file);
 void	init_matrice(t_fdf *fdf);
+void 	init_map(t_map *map, char *file);
 
 /*render: points.c */
 t_point	*create_3dpoints(t_fdf *fdf);

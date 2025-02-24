@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 10:43:16 by loribeir          #+#    #+#             */
-/*   Updated: 2025/02/24 10:58:30 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/24 13:35:28 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ void	cleanup_fdf(t_fdf *fdf)
 		free(fdf->map);
 	if (fdf->img)
 		free(fdf->img);
-	if (fdf->mlx)
-		free(fdf->mlx);
 	free(fdf);
 }
 

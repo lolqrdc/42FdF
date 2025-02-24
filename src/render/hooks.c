@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 10:00:00 by loribeir          #+#    #+#             */
-/*   Updated: 2025/02/24 11:11:09 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/24 12:47:34 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,14 @@ int	keyboard_handler(int keycode, t_fdf *fdf)
 int	close_window(t_fdf *fdf)
 {
 	if (fdf->img && fdf->img->image)
-	{
 		mlx_destroy_image(fdf->mlx, fdf->img->image);
-		fdf->img->image = NULL;
-	}
 	if (fdf->windows)
-	{
 		mlx_destroy_window(fdf->mlx, fdf->windows);
-		fdf->windows = NULL;
-	}
 	if (fdf->mlx)
 	{
 		mlx_destroy_display(fdf->mlx);
-		fdf->mlx = NULL;
+		free(fdf->mlx);
 	}
+	cleanup_fdf(fdf);
 	exit(0);
 }
