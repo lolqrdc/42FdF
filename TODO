@@ -31,3 +31,20 @@ flow explanation:
 
 render_map: show how all the transformation functions work together in sequence
 to prepare your points for display. 
+
+/*int mouse_handler(int mousecode, int x, int y, t_fdf *fdf)
+{
+    (void)y;
+    (void)x;
+
+    if (mousecode == SCROLL_DOWN)
+        fdf->scale = fdf->scale * 1.1;
+    else if (mousecode == SCROLL_UP)
+        fdf->scale = fdf->scale / 1.1;
+    mlx_destroy_image(fdf->mlx, fdf->img->image);
+    fdf->img = mlx_new_image(fdf->mlx, WIN_WIDTH, WIN_HEIGHT);
+    fdf->img->img_addr = mlx_get_data_addr(fdf->img->image, &fdf->img->bits_pixel,
+                                        &fdf->img->line_length, &fdf->img->endian);
+    draw_map(fdf);
+    return (0);
+}*/

@@ -3,28 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolq <lolq@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 18:54:15 by lolq              #+#    #+#             */
-/*   Updated: 2025/02/23 23:09:17 by lolq             ###   ########.fr       */
+/*   Updated: 2025/02/24 10:57:36 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-    t_fdf *fdf;
+	t_fdf	*fdf;
 
-    fdf = malloc(sizeof(t_fdf));
-    if (argc != 2)
-        return (free(fdf), print_error("Usage: ./fdf <filename>"), FAIL);
-    if (!fdf)
-        return(print_error("Error: allocation failed"), FAIL);
-    if (get_map(fdf, argv[1]) != SUCCESS)
-        return (cleanup_fdf(fdf), FAIL);
-    if (init_components(fdf) != SUCCESS)
-        return (cleanup_fdf(fdf), FAIL);
-    return(0);
+	fdf = malloc(sizeof(t_fdf));
+	if (argc != 2)
+		return (free(fdf), print_error("Usage: ./fdf <filename>"), FAIL);
+	if (!fdf)
+		return (print_error("Error: allocation failed"), FAIL);
+	if (get_map(fdf, argv[1]) != SUCCESS)
+		return (FAIL);
+	if (init_components(fdf) != SUCCESS)
+		return (cleanup_fdf(fdf), FAIL);
+	return (0);
 }
-

@@ -6,26 +6,25 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 08:19:45 by loribeir          #+#    #+#             */
-/*   Updated: 2025/02/23 16:03:26 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/24 11:07:06 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void check_file(char *file)
+void	check_file(char *file)
 {
-    char *ext;
+	char	*ext;
 
-    if (!file)
-        print_error("Error: file is NULL\n");
-    ext = ft_strrchr(file, '.');
-    if (!ext || ft_strncmp(ext, ".fdf", 4) != 0)
-        print_error("Error: invalid file\n");
+	if (!file)
+		print_error("Error: file is NULL\n");
+	ext = ft_strrchr(file, '.');
+	if (!ext || ft_strncmp(ext, ".fdf", 4) != 0)
+		print_error("Error: invalid file\n");
 }
 
-int    print_error(char *message)
+int	print_error(char *message)
 {
-    ft_printf("%s\n", message);
-    exit(1); 
+	ft_printf("%s\n", message);
+	exit (1);
 }
-
