@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 15:30:00 by loribeir          #+#    #+#             */
-/*   Updated: 2025/02/24 13:32:17 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/24 13:57:29 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,43 +21,43 @@ int	get_map(t_fdf *fdf, char *file)
 	return (SUCCESS);
 }
 
-void calc_map(t_map *map, int fd)
+void	calc_map(t_map *map, int fd)
 {
-    char *line;
-    char **tab;
+	char	*line;
+	char	**tab;
 
-    line = get_next_line(fd);
-    if (!line)
-        print_error("Error: map is empty");
-    tab = ft_split(line, ' ');
-    if (!tab)
-        print_error("Error: split failed");
-    while (tab[map->width])
-        map->width++;
-    map->height++;
-    free_tab(tab);
-    free(line);
-    while (1)
-    {
-        line = get_next_line(fd);
-        if (line == NULL)
-            break;
-        map->height++;
-        free(line);
-    }
+	line = get_next_line(fd);
+	if (!line)
+		print_error("Error: map is empty");
+	tab = ft_split(line, ' ');
+	if (!tab)
+		print_error("Error: split failed");
+	while (tab[map->width])
+		map->width++;
+	map->height++;
+	free_tab(tab);
+	free(line);
+	while (1)
+	{
+		line = get_next_line(fd);
+		if (line == NULL)
+			break ;
+		map->height++;
+		free(line);
+	}
 }
 
-void init_map(t_map *map, char *file)
+void	init_map(t_map *map, char *file)
 {
-    int fd;
+	int	fd;
 
-    fd = open(file, O_RDONLY);
-    if (fd < 0)
-        print_error("Error: failed to open file.");
-    map->width = 0;
-    map->height = 0;
-    calc_map(map, fd);
-    close(fd);
+	fd = open(file, O_RDONLY);
+	if (fd < 0)
+		print_error("Error: failed to open file.");
+	map->width = 0;
+	map->height = 0;
+	calc_map(map, fd);
+	close(fd);
 }
 
 void	parse_map(t_fdf *fdf, char *file)
