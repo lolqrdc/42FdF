@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 08:19:45 by loribeir          #+#    #+#             */
-/*   Updated: 2025/02/24 12:43:49 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/24 18:30:05 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	check_file(char *file, t_fdf *fdf)
 	{
 		if (fdf)
 			free(fdf);
-		print_error("Error: invalid file\n");
+		print_error("Error: invalid file");
 	}
 }
 

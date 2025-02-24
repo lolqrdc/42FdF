@@ -6,7 +6,7 @@
 /*   By: loribeir <loribeir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 15:32:33 by loribeir          #+#    #+#             */
-/*   Updated: 2025/02/24 11:10:31 by loribeir         ###   ########.fr       */
+/*   Updated: 2025/02/24 17:43:42 by loribeir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,23 +42,25 @@ void	init_line(t_line *line, t_point *first, t_point *end)
 void	draw_line(t_fdf *fdf, t_point *first, t_point *end)
 {
 	t_line	line;
+	t_point	tmp;
 
-	init_line(&line, first, end);
+	tmp = *first;
+	init_line(&line, &tmp, end);
 	while (1)
 	{
-		put_pixel(fdf, first->screen_x, first->screen_y, RED);
-		if (first->screen_x == end->screen_x
-			&& first->screen_y == end->screen_y)
+		put_pixel(fdf, tmp.screen_x, tmp.screen_y, RED);
+		if (tmp.screen_x == end->screen_x
+			&& tmp.screen_y == end->screen_y)
 			break ;
-		if (2 * line.error >= line.dy && first->screen_x != end->screen_x)
+		if (2 * line.error >= line.dy && tmp.screen_x != end->screen_x)
 		{
 			line.error += line.dy;
-			first->screen_x += line.sx;
+			tmp.screen_x += line.sx;
 		}
-		if (2 * line.error <= line.dx && first->screen_y != end->screen_y)
+		if (2 * line.error <= line.dx && tmp.screen_y != end->screen_y)
 		{
 			line.error += line.dx;
-			first->screen_y += line.sy;
+			tmp.screen_y += line.sy;
 		}
 	}
 }
